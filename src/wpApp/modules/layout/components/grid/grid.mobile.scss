@@ -1,0 +1,10 @@
+@import '~wpApp/utils/mixins/screens';
+
+@media (#{$phone}) and (#{$desktopMax}) {
+  .row {
+    flex-direction: column;
+  }
+  .col {
+    width: 100% !important;
+  }
+}

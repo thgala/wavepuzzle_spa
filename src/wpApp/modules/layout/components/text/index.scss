@@ -1,0 +1,26 @@
+.ggText{
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: 0.3px;
+
+  &--center {
+    text-align: center;
+  }
+
+  &--lightWeight {
+    font-weight: 300;
+  }
+
+  &--noMarginTop{
+    margin-top: 0;
+  }
+
+  &--usualMarginBottom{
+    margin-bottom: 30px;
+  }
+
+  &--mini{
+    font-size: 14px;
+  }
+}

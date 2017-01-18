@@ -1,0 +1,28 @@
+/* global styles */
+
+@import 'reset-css/reset.css';
+
+@import './fonts/index';
+@import './typography';
+@import './links';
+
+*, *:after, *:before{
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body{
+  position: relative;
+
+  h1 {
+
+  }
+
+  h2 {
+    
+  }
+
+  img {
+    width: 100%;
+  }
+}

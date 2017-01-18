@@ -1,0 +1,24 @@
+default: &default
+  project: "Wavepuzzle"
+  host: "localhost"
+  protocol: "http"
+  
+development:
+  <<: *default
+  env: "development"
+  port: "7000"
+  apiUrl: "http://localhost:7000/api/v1"
+
+staging:
+  <<: *default
+  env: "staging"
+  host: "st.com"
+  protocol: "https"
+  apiUrl: "https://st.com/api/v1"
+
+production:
+  <<: *default
+  env: "production"
+  host: "pr.com"
+  protocol: "https"
+  apiUrl: "https://pr.com/api/v1"

@@ -1,0 +1,158 @@
+@import '~wpApp/utils/mixins/screens';
+
+.wpButton{
+  position: relative;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  font-family: 'Lato';
+  z-index: 10;
+
+  &__box{
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: #7251A2;
+    min-height: 65px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 1.35;
+    letter-spacing: 0.3px;
+
+    transition: all 0.2s ease;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #fff !important;
+
+    &:hover{
+      background: #8D74B5;
+    }
+
+    &:active{
+      background: #5D3F7E;
+    }
+  }
+
+  &__text{
+
+    > div {
+      display: inline;
+      position: relative;
+      padding-right: 20px;
+
+      &:after{
+        content: ' ';
+        display: block;
+        position: absolute;
+        width: 20px;
+        top: 1px;
+        right: 0;
+        height: 100%;
+
+        background-image: url(./images/arrowRight.svg);
+        background-position: 50% 50%;
+        background-size: auto 70px;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &:after{
+    position: absolute;
+    z-index: 500;
+    content: ' ';
+
+    background-color: rgba(255, 255, 255, 0.75);
+    background-image: url(./images/loaderBig.svg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    z-index: 500;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.3s ease;
+
+  }
+
+  &--disabled{
+    cursor: not-allowed;
+  }
+
+  &--disabled &__box{
+    pointer-events: none;
+    background: #b8a8d0;
+    color: rgba(#fff, 0.5);
+
+    &:hover, &:active{
+      background: #7251A2;
+    }
+
+  }
+
+  &--loading:after{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &--autoWidth{
+    width: auto;
+  }
+
+  &--autoWidth &__box{
+    padding: 0 15px;
+  }
+
+  &--paypal{
+  
+  }
+
+  &--paypal &__box{
+    min-height: 70px;
+    background-image: url(./images/paypal.svg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    color: transparent;
+    text-indent: -9999px;
+
+    background-color: rgba(#000, 0.05);
+    border: 1px solid rgba(#000, 0.1);
+
+    &:hover{
+      background-color: rgba(#000, 0.1);
+    }
+
+    &:active{
+      background-color: rgba(#000, 0.15);
+    }
+  }
+
+}
+
+@media (#{$phone}) and (#{$desktopMax}) {
+  .wpButton{
+
+  }
+}

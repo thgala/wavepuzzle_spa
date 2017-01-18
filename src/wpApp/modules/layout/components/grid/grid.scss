@@ -1,0 +1,21 @@
+.row{
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.col{
+  &--alignCenter{
+    align-self: center;
+  }
+
+  &--flexDirectionColumn{
+    flex-direction: column;
+  }
+
+  &--justifyCenter{
+    justify-content: center;
+  }
+}
+
+@import "grid.mobile";
