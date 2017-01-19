@@ -1,0 +1,13 @@
+.subImage{
+  &__wrap{
+    height: 220px;
+    width: 140px;
+    margin: 30px auto;
+
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 5px;
+  }
+}

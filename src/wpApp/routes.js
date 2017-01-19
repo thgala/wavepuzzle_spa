@@ -10,7 +10,7 @@ export default class Routes extends Component {
   render() {
     return (
       <ReduxRouter>
-        <Route path="/">
+        <Route>
           {AppRoutes}
         </Route>
         <Route status={404} path="*" component={RootWrap} />

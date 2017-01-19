@@ -1,0 +1,40 @@
+.header{
+  position: relative;
+
+  &__wrap{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo{
+    background-image: url(./images/logoBlack.svg);
+    width: 45px;
+    height: 45px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    align-self: center;
+    margin: 30px 15px 0 15px;
+  }
+
+  &__menu{
+    margin-top: 15px;
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    // background: #5b6be0;
+  }
+
+  &__menuLink{
+    color: #000;
+    margin-right: 15px;
+    text-transform: lowercase;
+    font-size: 16px;
+    font-weight: 700;
+
+    &:hover, &--active{
+      color: rgb(255, 67, 67);
+    }
+
+  }
+}

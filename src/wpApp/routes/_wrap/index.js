@@ -26,7 +26,10 @@ export default class App extends Component {
   render() {
     return (
       <section>
-        {this.props.children}
+        <WP_Layout.components.header />
+        <div>
+          {this.props.children}
+        </div>
         <WP_Layout.components.globalLoader />
       </section>
     )

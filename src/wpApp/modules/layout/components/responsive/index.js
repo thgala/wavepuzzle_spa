@@ -39,7 +39,7 @@ export default class Responsive extends Component {
 
   calculateItemWidth(){
     let
-      {itemsInRow} = this.props,
+      { itemsInRow } = this.props,
       fullWidth = 100,
       itemWidth = 0,
       currentItemsInRow = 0,
@@ -51,10 +51,10 @@ export default class Responsive extends Component {
     } else if(windowWidth >= MD && windowWidth < LG){
       itemWidth = fullWidth/itemsInRow.md
       currentItemsInRow = itemsInRow.md
-    } else if(windowWidth >= SM && windowWidth < MD){
+    } else if(windowWidth >= XS && windowWidth < MD){
       itemWidth = fullWidth/itemsInRow.sm
       currentItemsInRow = itemsInRow.sm
-    } else if(windowWidth < SM){
+    } else if(windowWidth < XS){
       itemWidth = fullWidth/itemsInRow.xs
       currentItemsInRow = itemsInRow.xs
     }
@@ -69,7 +69,7 @@ export default class Responsive extends Component {
     return(
       <div className={this.block()}>
         {React.Children.map(this.props.children, (child, i) => {
-          return React.cloneElement(child, Object.assign({}, this.props, {
+          return React.cloneElement(child, Object.assign({}, {
             lastInRow: this.isItemLastInRow(i),
             style: {
               width: `${this.state.itemWidth}%`

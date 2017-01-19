@@ -20,10 +20,7 @@ export default class CheckoutHome extends Component {
       <section>
         <WP_Layout.components.container>
           <WP_Layout.components.subtitle>
-            Wavepuzzle is a sound design studio <br/>
-            offering original and custom music, <br/>
-            sound packs, sound effects for advertising, <br/>
-            applications, games, films and other.
+            Portfolio
           </WP_Layout.components.subtitle>
           <WP_Layout.components.subImage
             path={'./images/cake.jpg'}
