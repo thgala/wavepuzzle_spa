@@ -19,9 +19,18 @@ import './styles/app.scss';
   //   paramStorecode: WP_Router.selectors.paramsStore,
   // }),
   state => ({}),
-  dispatch => ({dispatch})
+  dispatch => ({
+    layoutActions: bindActionCreators(WP_Layout.actions, dispatch)
+  })
 )
 export default class App extends Component {
+
+  componentDidMount() {
+    const
+     { layoutActions } = this.props;
+
+    layoutActions.getTextFields()
+  }
 
   render() {
     return (

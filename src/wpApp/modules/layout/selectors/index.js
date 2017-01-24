@@ -3,9 +3,9 @@ import { MODULE_NAME } from './../constants';
 
 
 export const moduleState = state => state[MODULE_NAME];
-export const navigator = createSelector(
+export const textFields = createSelector(
   moduleState,
-  m => m.navigator
+  m => m.textFields
 )
 export const globalLoader = createSelector(
   moduleState,

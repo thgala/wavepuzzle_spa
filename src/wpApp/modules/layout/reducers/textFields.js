@@ -1,9 +1,9 @@
-const defaultState = true;
+const defaultState = [];
 
 export default function (state = defaultState, action) {
   switch (action.type) {
-    case 'layout/NAVIGATOR_TRIGGER':
-      return !state
+    case 'layout/GET_TEXT_FIELDS':
+      return action.data
 
     default:
       return state

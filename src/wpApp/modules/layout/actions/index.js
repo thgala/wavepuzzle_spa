@@ -1,3 +1,6 @@
+import axios from 'wpApp/utils/requests';
+
+
 export function globalLoaderShow(){
   return{
     type: 'layout/GLOBAL_LOADER_SHOW'
@@ -10,9 +13,16 @@ export function globalLoaderHide(){
   }
 }
 
-export function navigatorTrigger(){
-  return{
-    type: 'layout/NAVIGATOR_TRIGGER'
+export function getTextFields(){
+  return (dispatch, getState) => {
+    axios.get(`/text_field`)
+      .then((res) => {
+        console.log('res', res)
+        dispatch({
+          data: {},
+          type: 'layout/GET_TEXT_FIELDS'
+        })
+      })
   }
 }
 
