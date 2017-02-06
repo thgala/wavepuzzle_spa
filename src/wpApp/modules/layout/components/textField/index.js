@@ -1,3 +1,5 @@
+import * as WP_LayoutSelectors from './../../selectors';
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -5,18 +7,29 @@ import { createStructuredSelector } from 'reselect';
 
 @connect(
   createStructuredSelector({
-    user: ggAuth.selectors.user,
-    order: ggOrder.selectors.orderActive
+    textFields: WP_LayoutSelectors.textFields
   })
 )
 export default class GG_Text extends Component {
+
+  findValueByKey(){
+    const
+      { textFields, slug } = this.props;
+
+    return textFields.find((tf) => tf.slug === slug)
+  }
+
   render() {
-    return (
-      <div className={this.block()}>
-        <div className={this.element('wrap')}>
-          {this.props.children}
-        </div>
-      </div>
-    );
+    const
+      { slug } = this.props,
+      textField = this.findValueByKey();
+
+    return textField ? (
+      <div dangerouslySetInnerHTML={{
+        __html: textField.text
+      }} />
+    ) : (
+      <div>Textfield - {slug} - is empty</div>
+    )
   }
 }

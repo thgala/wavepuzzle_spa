@@ -9,6 +9,7 @@ import { bindActionCreators } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
 /* global styles for app */
+import 'reset-css/reset.css';
 import './styles/app.scss';
 
 

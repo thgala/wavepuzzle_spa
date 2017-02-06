@@ -11,13 +11,16 @@ module.exports = {
   entry: ['./src/index'],
 
   output: {
-    publicPath: '/'
+    publicPath: APP_CONFIG.assetOrigin + '/'
   },
 
   module: {
-    loaders: [{
+    rules: [{
       test: /\.(scss|sass|css)$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css!postcss-loader!sass'),
+      use: ExtractTextPlugin.extract({
+        fallbackLoader: "style-loader",
+        loader: ["css-loader", "postcss-loader", "sass-loader"]
+      }),
     }],
   },
 
@@ -32,12 +35,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.ejs',
       inject: false,
-      APP_CONFIG: APP_CONFIG
+      APP_CONFIG: APP_CONFIG,
+      buildTime: new Date()
     }),
-    new ExtractTextPlugin('bundle.css'),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new ExtractTextPlugin({
+      filename: 'bundle.css'
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    }),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       compress: {
         warnings: false,
       },

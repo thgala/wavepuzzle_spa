@@ -14,7 +14,9 @@ export default class GG_Text extends Component {
     return (
       <div className={this.block()}>
         <div className={this.element('wrap')}>
-          {this.props.children}
+          <div dangerouslySetInnerHTML={{
+            __html: this.props.children
+          }} />
         </div>
       </div>
     );

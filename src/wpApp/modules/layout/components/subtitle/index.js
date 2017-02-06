@@ -7,7 +7,7 @@ import bem from 'react-bem-classes';
 
 @bem({
   block: 'subtitle',
-  modifiers: ['center', 'lightWeight', 'noMarginTop', 'usualMarginBottom', 'mini']
+  modifiers: ['center', 'lightWeight', 'noMarginTop', 'usualMarginBottom', 'mini', 'home']
 })
 export default class GG_Subtitle extends Component {
   render() {

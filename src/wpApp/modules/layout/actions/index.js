@@ -17,9 +17,8 @@ export function getTextFields(){
   return (dispatch, getState) => {
     axios.get(`/text_field`)
       .then((res) => {
-        console.log('res', res)
         dispatch({
-          data: {},
+          data: res.data,
           type: 'layout/GET_TEXT_FIELDS'
         })
       })

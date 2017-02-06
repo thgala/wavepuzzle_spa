@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const YAML = require('yamljs');
 const APP_CONFIG = YAML.load(__dirname + '/../config.yml').development;
 
@@ -14,9 +14,14 @@ module.exports = {
   },
 
   module: {
-    loaders: [{
+    rules: [{
       test: /\.(scss|sass|css)$/,
-      loader: 'style!css?localIdentName=[path][name]--[local]!postcss-loader!sass',
+      use: [
+        'style-loader',
+        'css-loader?localIdentName=[path][name]--[local]',
+        'postcss-loader',
+        'sass-loader'
+      ]
     }],
   },
 
@@ -28,8 +33,11 @@ module.exports = {
       __DEVELOPMENT__: true,
       APP_CONFIG: JSON.stringify(APP_CONFIG),
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new CircularDependencyPlugin({
+      exclude: /a\.js/,
+      failOnError: true
+    }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
 };

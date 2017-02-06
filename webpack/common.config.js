@@ -1,7 +1,6 @@
 const path = require('path');
-const autoprefixer = require('autoprefixer');
-const postcssImport = require('postcss-import');
 const merge = require('webpack-merge');
+const webpack = require('webpack');
 
 const development = require('./dev.config.js');
 const production = require('./prod.config.js');
@@ -28,39 +27,26 @@ const common = {
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json', '.scss'],
-    modulesDirectories: ['node_modules', PATHS.app],
+    extensions: ['.jsx', '.js', '.json', '.scss'],
+    modules: ['node_modules', PATHS.app],
   },
 
   module: {
-    loaders: [
+    rules: [
       {  
         test: /\.(woff|woff2|ttf|otf|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?name=assets/[hash].[ext]&limit=1024',
+        use: ['url-loader?name=assets/[hash].[ext]&limit=1024'],
       }, {
         test: /\.(jpg|png|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file?name=assets/[name].[ext]',
-      }, {
-        test: /\.json$/,
-        loader: 'json-loader',
+        use: ['file-loader?name=assets/[name].[ext]'],
       }, {
         test: /\.js$/,
-        loaders: ['babel-loader'],
+        use: ['babel-loader'],
         exclude: /node_modules/,
       }
     ],
-  },
+  }
 
-  postcss: (webpack) => {
-    return [
-      autoprefixer({
-        browsers: ['last 2 versions'],
-      }),
-      postcssImport({
-        addDependencyTo: webpack,
-      }),
-    ];
-  },
 };
 
 if (TARGET === 'start' || !TARGET) {
