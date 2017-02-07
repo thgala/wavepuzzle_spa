@@ -90,6 +90,12 @@
   &__fullscreen{
     display: none;
     background-image: url(./images/plus.svg);
+    transition: all 0.4s ease;
+  }
+
+  &--onStart &__fullscreen{
+    opacity: 0;
+    visibility: hidden;
   }
 
   &__range{
@@ -104,6 +110,7 @@
     border-radius: 3px;
     overflow: hidden;
     height: 5px;
+    transition: all 0.4s ease;
   }
 
   &--video &__range {
@@ -113,8 +120,18 @@
     width: 240px;
   }
 
+  .wpPlayer--video.wpPlayer--onStart &__range {
+    width: 260px;
+  }
+
+  &--onStart &__fullscreen{
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+  }
+
   &--onStart &__self{
-    opacity: 0.25;
+    opacity: 0;
   }
 
   &__rangeCursor{
@@ -162,6 +179,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
   }
 
   &:hover &__controls{

@@ -29,10 +29,11 @@ export default class WP_Player extends BaseClass {
       } = this.props,
       backgroundStyle = {
         backgroundImage: `url(${image})`
-      }
+      },
+      onStart = played === 0;
 
     return (
-      <div className={this.block({ fullscreen, onStart: played === 0 })}>
+      <div className={this.block({ fullscreen, onStart })}>
         <div className={this.element('background')} style={backgroundStyle} />
         <div className={this.element('wrap')}>
           <ReactPlayer
@@ -67,7 +68,8 @@ export default class WP_Player extends BaseClass {
             </div>
             <div
               className={this.element('fullscreen')}
-              onClick={this.videoFullscreen} />
+              onClick={this.videoFullscreen}
+            />
           </div>
         </div>
       </div>
