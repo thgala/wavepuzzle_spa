@@ -83,7 +83,8 @@
     "react-bem-classes": "^1.0.3",
     "react-click-outside": "^2.2.0",
     "react-cookie": "^1.0.4",
-    "react-dom": "^15.3.2",
+    "react-dom": "^15.4.2",
+    "react-player": "^0.14.1",
     "react-redux": "^4.4.5",
     "react-responsive": "^1.2.5",
     "react-router": "^2.8.1",
@@ -93,6 +94,7 @@
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.4",
     "reset-css": "^2.0.2011012603",
+    "screenfull": "^3.0.2",
     "yamljs": "^0.2.8"
   }
 }

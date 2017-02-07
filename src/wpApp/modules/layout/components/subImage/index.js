@@ -11,10 +11,9 @@ import bem from 'react-bem-classes';
 export default class WP_Cakte extends Component {
   render() {
     const
-      { path, absPath } = this.props,
-      imageUrl = !!path ? require(path) : absPath,
+      { path } = this.props,
       subImageStyles = {
-        backgroundImage: `url(${imageUrl})`
+        backgroundImage: `url(${path})`
       }
 
     return (
