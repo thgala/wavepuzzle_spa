@@ -1,0 +1,11 @@
+.logo{
+  background-image: url(./images/logoWhite.svg);
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+
+  &--black{
+    background-image: url(./images/logoBlack.svg);
+  }
+}

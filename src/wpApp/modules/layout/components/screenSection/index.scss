@@ -1,0 +1,9 @@
+.screenSection{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &--center{
+    justify-content: center;
+  }
+}

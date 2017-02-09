@@ -1,5 +1,6 @@
 .header{
   position: relative;
+  padding-bottom: 50px;
 
   &__wrap{
     display: flex;
@@ -7,7 +8,7 @@
   }
 
   &__logo{
-    background-image: url(./images/logoBlack.svg);
+    background-image: url(./images/logoWhite.svg);
     width: 45px;
     height: 45px;
     background-size: contain;
@@ -26,7 +27,7 @@
   }
 
   &__menuLink{
-    color: #000;
+    color: #fff;
     margin-right: 15px;
     text-transform: lowercase;
     font-size: 16px;
